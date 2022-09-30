@@ -20,7 +20,6 @@ def ad_auth(username, password):
         authenticated = bool(token)
         if authenticated == True:
             session['username'] = username
-            session['role'] = "Standard User"
             impersonator = Impersonate(username, password, domain)
 
             # Get Username by impersonating user

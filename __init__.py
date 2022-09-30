@@ -27,7 +27,6 @@ class CatapultAuth:
 
         @app.get('/')
         @login_required
-        @roles_allowed(['Standard User'])
         def welcome():
             return render_template('welcome.html')
 
