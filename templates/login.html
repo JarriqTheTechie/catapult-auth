@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% block title %}Login{% endblock %}
+{% block auth_container %}
+
+    <div class="p-3 bg-white border-bottom">
+        <h5 class="mb-0">Equity Bank Bahamas Limited</h5>
+    </div>
+
+    <section class="ftco-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 text-center mb-5">
+                    <h2 class="heading-section">
+                        <img src="https://equitybanksslacct.com/images/Equity-Logo.png" alt="" style="max-height: 42px">
+                    </h2>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-12 col-lg-10">
+                    <div class="d-md-flex" style="justify-content: center">
+                        <div class="login-wrap p-4 p-lg-5">
+                            <div class="d-flex">
+                                <div class="w-100">
+                                    <h3 class="mb-4">Sign In</h3>
+                                </div>
+                                <div class="w-100 d-none">
+                                    <p class="social-media d-flex justify-content-end d-none">
+                                        <a href="#"
+                                           class="social-icon d-flex align-items-center justify-content-center"><span
+                                                class="fa fa-facebook"></span></a>
+                                        <a href="#"
+                                           class="social-icon d-flex align-items-center justify-content-center"><span
+                                                class="fa fa-twitter"></span></a>
+                                    </p>
+                                </div>
+                            </div>
+                            <form action="{{ url_for('do_login') }}" class="signin-form" method="post">
+                                <div class="form-group mb-3">
+                                    <label class="label" for="name">Username</label>
+                                    <input type="text" class="form-control" name="username" placeholder="Username"
+                                           required>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label class="label" for="password">Password</label>
+                                    <input type="password" class="form-control" name="password" placeholder="Password"
+                                           required>
+                                </div>
+                                {% if error %}
+                                    <div class="d-flex align-items-center pb-3">
+                                        <div class="col-1">
+                                            <svg width="16" height="16" viewBox="0 0 16 16">
+                                                <defs>
+                                                    <path d="M16,8 C16,12.4192581 12.4179677,16 8,16 C3.58203226,16 0,12.4192581 0,8 C0,3.58332258 3.58203226,0 8,0 C12.4179677,0 16,3.58332258 16,8 Z M8,9.61290323 C7.18048387,9.61290323 6.51612903,10.2772581 6.51612903,11.0967742 C6.51612903,11.9162903 7.18048387,12.5806452 8,12.5806452 C8.81951613,12.5806452 9.48387097,11.9162903 9.48387097,11.0967742 C9.48387097,10.2772581 8.81951613,9.61290323 8,9.61290323 Z M6.59119355,4.27916129 L6.83048387,8.66625806 C6.84167742,8.87154839 7.01141935,9.03225806 7.217,9.03225806 L8.783,9.03225806 C8.98858065,9.03225806 9.15832258,8.87154839 9.16951613,8.66625806 L9.40880645,4.27916129 C9.42090323,4.05741935 9.24435484,3.87096774 9.02229032,3.87096774 L6.97767742,3.87096774 C6.7556129,3.87096774 6.57909677,4.05741935 6.59119355,4.27916129 L6.59119355,4.27916129 Z"
+                                                          id="path-1"></path>
+                                                </defs>
+                                                <g id="Page-1" stroke="none" stroke-width="1" fill="none"
+                                                   fill-rule="evenodd">
+                                                    <g id="Account_Recovery_Find_Account_Error"
+                                                       transform="translate(-684.000000, -459.000000)">
+                                                        <g id="Icon-/-Bounds"
+                                                           transform="translate(684.000000, 459.000000)">
+                                                            <g id="Solid/address-book">
+                                                                <mask id="mask-2" fill="white">
+                                                                    <use xlink:href="#path-1"></use>
+                                                                </mask>
+                                                                <use id="Mask" fill="#CC000D"
+                                                                     xlink:href="#path-1"></use>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                        </div>
+                                        <div class="col-11">
+                                            <p class="pl-3 pr-3 text-danger mb-0" style="line-height: 2; font-size: 11.2px;">
+                                                We couldn't log you in. Please check your username and password and try
+                                                again.
+                                            </p>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                                <div class="form-group">
+                                    <button type="submit" class="form-control btn btn-primary submit px-3">Sign In
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}
