@@ -6,6 +6,10 @@ import pywintypes
 from flask import redirect, url_for, session
 
 
+def custom_auth_logic():
+    print("gotcha bitch")
+    return True
+
 
 def ad_auth(username, password):
     username = username.lower()
@@ -28,8 +32,7 @@ def ad_auth(username, password):
             impersonator.logoff()
             session['FullName'] = fullname
 
-            # Add your login auditing logic here.
-
+            custom_auth_logic()
             return redirect(url_for('welcome'))
     except pywintypes.error:
         return redirect(url_for('do_login', error='yes'))
